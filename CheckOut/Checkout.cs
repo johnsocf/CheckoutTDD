@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-//using System.Linq;
 
 namespace CheckOut
 {
@@ -16,7 +15,6 @@ namespace CheckOut
 		public int getTotal() {
 			var total = 0;
 			foreach (var i in _products) {
-				//total += _products.Price;
 				total += i.Price;
 			}
 			return total;
@@ -34,10 +32,6 @@ namespace CheckOut
 
 			return totalAfterDiscount;
 		}
-	}
-	public class Product {
-		public string Name { get; set; }
-		public int Price { get; set; }
 	}
 }
 
