@@ -1,0 +1,6 @@
+/Users/catherinejohnson/Projects/CheckOut/CheckOut/obj/Debug/.NETFramework,Version=v4.5.AssemblyAttribute.cs
+/Users/catherinejohnson/Projects/CheckOut/CheckOut/bin/Debug/CheckOut.dll.mdb
+/Users/catherinejohnson/Projects/CheckOut/CheckOut/bin/Debug/CheckOut.dll
+/Users/catherinejohnson/Projects/CheckOut/CheckOut/obj/Debug/CheckOut.dll
+/Users/catherinejohnson/Projects/CheckOut/CheckOut/obj/Debug/CheckOut.dll.mdb
+/Users/catherinejohnson/Projects/CheckOut/CheckOut/bin/Debug/nunit.framework.dll
