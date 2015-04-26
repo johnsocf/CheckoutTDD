@@ -1,8 +1,11 @@
 ﻿<Properties StartupItem="CheckOut/CheckOut.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="CheckOut/Test.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="CheckOut/Checkout.cs">
     <Files>
-      <File FileName="CheckOut/Test.cs" Line="1" Column="1" />
+      <File FileName="CheckOut/Test.cs" Line="45" Column="1" />
+      <File FileName="CheckOut/Checkout.cs" Line="35" Column="3" />
+      <File FileName="CheckOut/packages.config" Line="4" Column="12" />
+      <File FileName="CheckOut/Product.cs" Line="12" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

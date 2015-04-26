@@ -12,26 +12,24 @@ namespace CheckOut
 			_products = new List<Product>();
 
 		}
-		public int getTotal() {
+		public int getTotal() 
+		{
 			var total = 0;
 			foreach (var i in _products) {
 				total += i.Price;
 			}
 			return total;
 		}
-		public void addProduct(Product product) {
+		public void ApplyDiscounts()
+		{
+			var discount = new Discount ();
+			discount.Check_For_Discount(_products);
+		}
+		public void addProduct(Product product) 
+		{
 			_products.Add(product);
 		}
 
-		public decimal processCouponDiscount(int total, int percentOff) {
-			
-			decimal percentageOff = (percentOff/100m);
-				
-			var	discount = (total * percentageOff);
-			var	totalAfterDiscount = Math.Round(total - discount, 0);
-
-			return totalAfterDiscount;
-		}
 	}
 }
 

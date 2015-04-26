@@ -34,17 +34,17 @@ namespace CheckOut
 			Assert.That (checkout.getTotal(), Is.EqualTo(120));
 		}
 		[Test ()]
-		public void Should_return_80_for_product_A_and_B_after_coupon_code ()
+		public void Should_process_A_discount ()
 		{
 			var checkout = new Checkout ();
-			var productA = new Product { Name = "A", Price = 70 };
-			var productB = new Product { Name = "B", Price = 30 };
+			var productA = new Product { Name = "A", Price = 20 };
+			var productB = new Product { Name = "B", Price = 100 };
 			checkout.addProduct(productA);
 			checkout.addProduct(productB);
-			var initialTotal = checkout.getTotal();
-			checkout.processCouponDiscount (initialTotal, 20);
-			Assert.That (checkout.processCouponDiscount(initialTotal, 20), Is.EqualTo(80));
+			checkout.getTotal();
+			checkout.ApplyDiscounts();
 		}
+
 	}
 }
 
