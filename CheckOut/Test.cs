@@ -40,6 +40,12 @@ namespace CheckOut
 			var productA = new Product { Name = "A", Price = 20 };
 			var productB = new Product { Name = "B", Price = 100 };
 			checkout.addProduct(productA);
+			checkout.addProduct(productA);
+			checkout.addProduct(productA);
+			checkout.addProduct(productB);
+			checkout.addProduct(productB);
+			checkout.addProduct(productB);
+			checkout.addProduct(productB);
 			checkout.addProduct(productB);
 			checkout.getTotal();
 			checkout.ApplyDiscounts();

@@ -15,8 +15,8 @@ namespace CheckOut
 		public int getTotal() 
 		{
 			var total = 0;
-			foreach (var i in _products) {
-				total += i.Price;
+			foreach (var product in _products) {
+				total += product.Price;
 			}
 			return total;
 		}
