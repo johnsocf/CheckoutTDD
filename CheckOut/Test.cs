@@ -123,9 +123,12 @@ namespace CheckOut
 			_checkout.addProduct(_productA);
 			_checkout.addProduct(_productB);
 			_checkout.addProduct(_productB);
+			_checkout.addProduct(_productC);
+			_checkout.addProduct(_productC);
+			_checkout.addProduct(_productD);
 			var total = _checkout.getTotal();
 			var totalAfterDiscounts = _checkout.ApplyDiscounts(total);
-			Assert.That (totalAfterDiscounts, Is.EqualTo(175));
+			Assert.That (totalAfterDiscounts, Is.EqualTo(230));
 		}
 
 	}
