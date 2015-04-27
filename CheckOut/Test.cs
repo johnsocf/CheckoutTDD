@@ -9,6 +9,8 @@ namespace CheckOut
 		private Checkout _checkout;
 		private Product _productA;
 		private Product _productB;
+		private Product _productC;
+		private Product _productD;
 
 		[SetUp]
 		public void Setup()
@@ -16,6 +18,8 @@ namespace CheckOut
 			_checkout = new Checkout();
 			_productA = new Product { Name = "A", Price = 50 };
 			_productB = new Product { Name = "B", Price = 30 };
+			_productC = new Product { Name = "C", Price = 20 };
+			_productD = new Product { Name = "D", Price = 15 };
 		}
 
 		[Test ()]
@@ -96,6 +100,32 @@ namespace CheckOut
 			var total = _checkout.getTotal();
 			var totalAfterDiscounts = _checkout.ApplyDiscounts(total);
 			Assert.That (totalAfterDiscounts, Is.EqualTo(45));
+		}
+
+		[Test ()]
+		public void Should_Apply_Triple_A_Discount_And_Double_B_Discount_To_Return_175_For_3_A_Products_And_Two_B_Products ()
+		{
+			_checkout.addProduct(_productA);
+			_checkout.addProduct(_productA);
+			_checkout.addProduct(_productA);
+			_checkout.addProduct(_productB);
+			_checkout.addProduct(_productB);
+			var total = _checkout.getTotal();
+			var totalAfterDiscounts = _checkout.ApplyDiscounts(total);
+			Assert.That (totalAfterDiscounts, Is.EqualTo(175));
+		}
+
+		[Test ()]
+		public void Should_Apply_Triple_A_Discount_And_Double_B_Discount_To_Return_230_For_3_A_Products_And_Two_B_Products_And_Two_C_Products_And_One_D_Product ()
+		{
+			_checkout.addProduct(_productA);
+			_checkout.addProduct(_productA);
+			_checkout.addProduct(_productA);
+			_checkout.addProduct(_productB);
+			_checkout.addProduct(_productB);
+			var total = _checkout.getTotal();
+			var totalAfterDiscounts = _checkout.ApplyDiscounts(total);
+			Assert.That (totalAfterDiscounts, Is.EqualTo(175));
 		}
 
 	}
