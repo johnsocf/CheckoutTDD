@@ -6,58 +6,96 @@ namespace CheckOut
 	[TestFixture ()]
 	public class Test
 	{
+		private Checkout _checkout;
+		private Product _productA;
+		private Product _productB;
+
+		[SetUp]
+		public void Setup()
+		{
+			_checkout = new Checkout();
+			_productA = new Product { Name = "A", Price = 50 };
+			_productB = new Product { Name = "B", Price = 30 };
+		}
+
 		[Test ()]
 		public void TestCase ()
 		{
-			var checkout = new Checkout();
-			var total = checkout.getTotal ();
+			var total = _checkout.getTotal ();
 			Assert.That(total, Is.EqualTo(0));
 		}
 		[Test ()]
 		public void Should_return_50_for_product_A  ()
 		{
-			var checkout = new Checkout();
-			var productA = new Product { Name = "A", Price = 50 };
-			checkout.addProduct(productA);
-			checkout.getTotal();
-			Assert.That (checkout.getTotal(), Is.EqualTo(50));
+			_checkout.addProduct(_productA);
+			_checkout.getTotal();
+			Assert.That (_checkout.getTotal(), Is.EqualTo(50));
 		}
 		[Test ()]
 		public void Should_return_120_for_product_A_and_B ()
 		{
-			var checkout = new Checkout ();
-			var productA = new Product { Name = "A", Price = 50 };
-			var productB = new Product { Name = "B", Price = 30 };
-			checkout.addProduct(productA);
-			checkout.addProduct(productB);
-			checkout.getTotal();
-			Assert.That (checkout.getTotal(), Is.EqualTo(80));
+			_checkout.addProduct(_productA);
+			_checkout.addProduct(_productB);
+			_checkout.getTotal();
+			Assert.That (_checkout.getTotal(), Is.EqualTo(80));
 		}
 		[Test ()]
 		public void Should_return_130_for_3_A_Products ()
 		{
-			var checkout = new Checkout ();
-			var productA = new Product { Name = "A", Price = 50 };
-			checkout.addProduct(productA);
-			checkout.addProduct(productA);
-			checkout.addProduct(productA);
-			var total = checkout.getTotal();
-			var totalAfterDiscounts = checkout.ApplyDiscounts(total);
+			_checkout.addProduct(_productA);
+			_checkout.addProduct(_productA);
+			_checkout.addProduct(_productA);
+			var total = _checkout.getTotal();
+			var totalAfterDiscounts = _checkout.ApplyDiscounts(total);
 			Assert.That (totalAfterDiscounts, Is.EqualTo(130));
 		}
 
 		[Test ()]
 		public void Should_return_180_for_4_A_Products ()
 		{
-			var checkout = new Checkout ();
-			var productA = new Product { Name = "A", Price = 50 };
-			checkout.addProduct(productA);
-			checkout.addProduct(productA);
-			checkout.addProduct(productA);
-			checkout.addProduct(productA);
-			var total = checkout.getTotal();
-			var totalAfterDiscounts = checkout.ApplyDiscounts(total);
+			_checkout.addProduct(_productA);
+			_checkout.addProduct(_productA);
+			_checkout.addProduct(_productA);
+			_checkout.addProduct(_productA);
+			var total = _checkout.getTotal();
+			var totalAfterDiscounts = _checkout.ApplyDiscounts(total);
 			Assert.That (totalAfterDiscounts, Is.EqualTo(180));
+		}
+
+		[Test ()]
+		public void Should_return_260_for_6_A_Products ()
+		{
+			_checkout.addProduct(_productA);
+			_checkout.addProduct(_productA);
+			_checkout.addProduct(_productA);
+			_checkout.addProduct(_productA);
+			_checkout.addProduct(_productA);
+			_checkout.addProduct(_productA);
+			var total = _checkout.getTotal();
+			var totalAfterDiscounts = _checkout.ApplyDiscounts(total);
+			Assert.That (totalAfterDiscounts, Is.EqualTo(260));
+		}
+
+		[Test ()]
+		public void Should_return_160_for_3_A_Products_and_1_B_Product ()
+		{
+			_checkout.addProduct(_productA);
+			_checkout.addProduct(_productA);
+			_checkout.addProduct(_productA);
+			_checkout.addProduct(_productB);
+			var total = _checkout.getTotal();
+			var totalAfterDiscounts = _checkout.ApplyDiscounts(total);
+			Assert.That (totalAfterDiscounts, Is.EqualTo(160));
+		}
+
+		[Test ()]
+		public void Should_return_45_for_2_B_Products ()
+		{
+			_checkout.addProduct(_productB);
+			_checkout.addProduct(_productB);
+			var total = _checkout.getTotal();
+			var totalAfterDiscounts = _checkout.ApplyDiscounts(total);
+			Assert.That (totalAfterDiscounts, Is.EqualTo(45));
 		}
 
 	}
