@@ -20,10 +20,11 @@ namespace CheckOut
 			}
 			return total;
 		}
-		public void ApplyDiscounts()
+		public int ApplyDiscounts(int total)
 		{
 			var discount = new Discount ();
-			discount.Check_For_Discount(_products);
+			var totalAfterDiscounts = discount.Check_For_Discount(_products, total);
+			return totalAfterDiscounts;
 		}
 		public void addProduct(Product product) 
 		{

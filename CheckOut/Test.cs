@@ -37,8 +37,8 @@ namespace CheckOut
 		public void Should_process_A_discount ()
 		{
 			var checkout = new Checkout ();
-			var productA = new Product { Name = "A", Price = 20 };
-			var productB = new Product { Name = "B", Price = 100 };
+			var productA = new Product { Name = "A", Price = 50 };
+			var productB = new Product { Name = "B", Price = 30 };
 			checkout.addProduct(productA);
 			checkout.addProduct(productA);
 			checkout.addProduct(productA);
@@ -47,8 +47,8 @@ namespace CheckOut
 			checkout.addProduct(productB);
 			checkout.addProduct(productB);
 			checkout.addProduct(productB);
-			checkout.getTotal();
-			checkout.ApplyDiscounts();
+			var total = checkout.getTotal();
+			var totalAfterDiscounts = checkout.ApplyDiscounts(total);
 		}
 
 	}

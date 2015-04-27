@@ -5,17 +5,17 @@ namespace CheckOut
 {
 	public class Discount
 	{
-		
+		public int _total;
 		public Discount ()
 		{
 			
 		}
 
-		public void Check_For_Discount(IList<Product> _products)
+		public int Check_For_Discount(IList<Product> _products, int total)
 		{
-			var products = _products;
 			var countA = 0;
 			var countB = 0;
+			_total = total;
 			foreach (var product in _products) {
 				if (product.Name == "A") {
 					countA++;
@@ -32,22 +32,17 @@ namespace CheckOut
 				}
 			}
 
-			return;
+			return _total;
 		}
 
-		public void Check_Cart_Totals()
+		public void Triple_A_Discount ()
 		{
-			
+			_total -= 20;
 		}
 
-		public int Triple_A_Discount ()
+		public void Double_B_Discount ()
 		{
-			return 1;
-		}
-
-		public int Double_B_Discount ()
-		{
-			return 2;
+			_total -= 15;
 		}
 	}
 }
