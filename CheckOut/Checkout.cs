@@ -14,11 +14,11 @@ namespace CheckOut
 		}
 		public int getTotal() 
 		{
-			var total = 0;
+			var Total = 0;
 			foreach (var product in _products) {
-				total += product.Price;
+				Total += product.Price;
 			}
-			return total;
+			return Total;
 		}
 		public int ApplyDiscounts(int total)
 		{

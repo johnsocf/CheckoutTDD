@@ -13,22 +13,22 @@ namespace CheckOut
 
 		public int Check_For_Discount(IList<Product> _products, int total)
 		{
-			var countA = 0;
-			var countB = 0;
+			var CountA = 0;
+			var CountB = 0;
 			_total = total;
 			foreach (var product in _products) {
 				if (product.Name == "A") {
-					countA++;
+					CountA++;
 				} else if (product.Name == "B") {
-					countB++;
+					CountB++;
 				}
-				if ((countA % 3) == 0 && (countA != 0)) {
+				if ((CountA % 3) == 0 && (CountA != 0)) {
 					Triple_A_Discount ();
-					countA = 0;
+					CountA = 0;
 				}
-				if ((countB % 2) == 0 && (countB != 0)) {
+				if ((CountB % 2) == 0 && (CountB != 0)) {
 					Double_B_Discount ();
-					countB = 0;
+					CountB = 0;
 				}
 			}
 
